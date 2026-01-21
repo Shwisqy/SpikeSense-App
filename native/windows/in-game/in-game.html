@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../css/general.css" />
+    <link rel="stylesheet" href="../../css/ingame.css" />
+    <title>Valorant Round Tracker</title>
+    <style>
+      body { font-family: sans-serif; background: #1b1b1b; color: #fff; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #555; padding: 4px 8px; text-align: center; }
+      th { background: #222; }
+      tr.myPlayer { background: #004dff33; }
+
+      #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #222;
+        padding: 4px 8px;
+        margin-bottom: 8px;
+      }
+
+      #header button {
+        margin-left: 4px;
+        background: #333;
+        color: #fff;
+        border: 1px solid #555;
+        cursor: pointer;
+      }
+
+      #infoLog,
+      #eventsLog {
+        max-height: 150px;
+        overflow: auto;
+        border: 1px solid #555;
+        margin-bottom: 8px;
+        background: #111;
+        font-size: 11px;
+      }
+
+      #eventsLog .highlight {
+        background: #553300;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Valorant Round Tracker</h2>
+
+    <div id="header">
+      <span id="hotkey"></span>
+      <div>
+        <button id="minimizeButton">_</button>
+        <button id="maximizeButton">[ ]</button>
+        <button id="closeButton">X</button>
+      </div>
+    </div>
+
+    <div id="infoLog"></div>
+    <div id="eventsLog"></div>
+
+    <table id="scoreboard">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Agent</th>
+          <th>Team</th>
+          <th>Money</th>
+          <th>Weapon</th>
+          <th>Abilities</th>
+          <th>Ult</th>
+        </tr>
+      </thead>
+      <tbody id="scoreboardBody"></tbody>
+    </table>
+
+    <script type="module" src="./in-game.js"></script>
+  </body>
+</html>
