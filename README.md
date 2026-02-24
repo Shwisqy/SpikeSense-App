@@ -23,6 +23,7 @@ The goal is not to play the game for you — it's to help you understand why cer
 
 SpikeSense uses the **Overwolf Game Events Provider (GEP)** to read match data directly from the Valorant client. A local Python backend processes the round state and uses the **Gemini AI** to generate short, plain-English suggestions that reference common Valorant strategies. The suggestion is displayed in a small HUD overlay that the player can choose to read or ignore.
 The player retains full agency over every decision. SpikeSense only ever displays a text suggestion — it does not interact with the game client in any way.
+
 ![SpikeSense App Flow](flow.png)
 
 ---
