@@ -1,37 +1,52 @@
-# Overwolf sample app
+# SpikeSense
 
-This repository contains sample apps that demonstrate some basic points and flows that are relevant when developing Overwolf apps:
+**A Valorant companion app that helps players learn the game.**
 
-- The apps will launch automatically when a supported starts
-- Register to the overwolf.games.events API in order to receive real time events from the game.
-- Define a custom hotkey to be used in-game
-- Communication between the app windows according to our best practices
+SpikeSense is an Overwolf application designed to help newer and intermediate Valorant players build better game sense. During a match, it displays helpful suggestions based on the current round state, giving players a reference point for common strategies and mechanics they may not yet be familiar with.
 
-## Sample app versions
+The goal is not to play the game for you — it's to help you understand why certain decisions tend to work, so you can develop your own game sense over time.
 
-This repository contains two variants of the sample app:
+---
 
-* native - pure js version without any external js framework.
-* ts - typeScript version of the app, that uses external packages,etc.
+## Features
 
-In the future we will add more variants like React, Vue, etc.
+- **Buy Phase Suggestions** — shows a helpful note during the buy phase about common economy decisions, such as when teams typically save, eco, or full buy based on credit counts
+- **Situational Reminders** — during the round, displays a short suggestion referencing common Valorant strategies for the current situation, such as typical positioning patterns or when players generally use certain abilities
+- **In-game Overlay** — a small, unobtrusive overlay that displays a suggestion and fades away after a customizable amount of time.
+- **Round History** — a session log so players can review the suggestions from previous rounds and reflect on their decisions
+- **Win Likelihood Indicator** — a rough estimate based on economy to help newer players understand how credit advantage affects round outcomes
+- **Player Habit Tracking** — tracks which approaches have tended to work for the player personally, helping them identify patterns in their own playstyle
 
-## How to load the app
+---
 
-### Download from the store
+## How It Works
 
-It's highly recommended to follow the build steps for setting up the sample app, including downloading the source code and building it manually.
-For those who need it, we can provide a pre-built and pre-packaged version. Contact us at developers@overwolf.com for more details.
+SpikeSense currently just uses the **Overwolf Game Events Provider (GEP)** to read match data directly from the Valorant client. A local Python backend processes the round state and uses the **Gemini AI** to generate short, plain-English suggestions that reference common Valorant strategies. The suggestion is displayed in a small HUD overlay that the player can choose to read or ignore.
+The player retains full agency over every decision. SpikeSense only ever displays a text suggestion — it does not interact with the game client in any way.
 
-### Load as unpacked extension.
+---
 
-You can load the native version of the sample app "as is", without any build process. Just download the repo and under Overwolf's settings, choose Support tab and then Development options. Click the Load unpacked button and choose the relevant folder of the native folder from the repository you just downloaded.
+## Tech Stack
 
-* In order to load an app as "unpacked", you'll first have to be whitelisted as an Overwolf dev. More details on how to be whitelisted can be found [here](https://overwolf.github.io/docs/start/sdk-introduction#whitelist-as-a-developer)
-* To load the typescript version, first you should build it. More details on the readme page under the "ts" folder in this repo.
+- **Frontend:** TypeScript, Overwolf API
+- **Backend:** Python, FastAPI, XGBoost
+- **AI:** Google Gemini with Google Search grounding
+- **Data:** Overwolf GEP
 
-## Notes
+---
 
-Editing the author or app name in the manifest will prevent loading the app as unpacked app.
+## Compliance
 
-For any further information or questions, contact developers@overwolf.com
+SpikeSense is developed in accordance with Riot Games' third-party tool policies and Overwolf's developer guidelines. The app reads only data exposed by the Overwolf GEP and does not interact with or modify the Valorant game client in any way. All suggestions are passive text references — the app does not automate any player input or decision.
+
+---
+
+## Status
+
+Currently in development. Targeting release on the Overwolf Appstore.
+
+---
+
+## Contact
+
+For enquiries contact: shwisqygaming@gmail.com
