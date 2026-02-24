@@ -26,6 +26,11 @@ The player retains full agency over every decision. SpikeSense only ever display
 
 ---
 
+## Flow
+![SpikeSense App Flow](flow.png)
+
+---
+
 ## Tech Stack
 
 - **Frontend:** TypeScript, Overwolf API
